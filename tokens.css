@@ -1,0 +1,59 @@
+/* ============================================
+   VelaPay Brand Tokens — Source of Truth
+   Consumed via `@import '@vela/brand/tokens.css'`.
+   Edit here, not in downstream repos.
+   ============================================ */
+
+:root {
+  /* Brand blue — anchored on kit (Secondary @ -400, Primary @ -600, Tertiary @ -800) */
+  --brand-50:  #e8eefd;
+  --brand-100: #d1ddfb;
+  --brand-200: #a3bbf7;
+  --brand-300: #4c9ff9;
+  --brand-400: #1486F6;  /* Secondary · Dodger Blue */
+  --brand-500: #0e5ef0;
+  --brand-600: #0C35E9;  /* Primary · Electric Blue */
+  --brand-700: #0a20d6;
+  --brand-800: #0909C3;  /* Tertiary · Medium Blue */
+  --brand-900: #070790;
+  --brand-950: #050560;
+
+  /* Neutrals — Titanium White + Dull Black anchors */
+  --ink-0:    #ffffff;
+  --ink-50:   #F4F5F7;   /* Titanium White */
+  --ink-100:  #eef0f6;
+  --ink-200:  #dde1ec;
+  --ink-300:  #bcc3d6;
+  --ink-400:  #8b95b3;
+  --ink-500:  #5a6585;
+  --ink-600:  #3d4665;
+  --ink-700:  #262d48;
+  --ink-800:  #1f1f1f;
+  --ink-900:  #161616;   /* Dull Black */
+  --ink-950:  #0a0a0a;
+
+  /* Semantic roles */
+  --bg:            var(--ink-0);
+  --bg-soft:       var(--ink-50);
+  --bg-inverse:    var(--ink-900);
+  --text:          var(--ink-900);
+  --text-muted:    var(--ink-500);
+  --text-subtle:   var(--ink-400);
+  --border:        rgba(22, 22, 22, 0.08);
+  --border-strong: rgba(22, 22, 22, 0.14);
+  --accent:        var(--brand-600); /* Electric Blue */
+  --accent-hover:  var(--brand-400); /* Dodger Blue */
+  --accent-deep:   var(--brand-800); /* Medium Blue */
+  --accent-soft:   var(--brand-50);
+
+  /* Typography stacks — pair with fonts.css */
+  --font-display: 'Fustat', 'Inter', system-ui, sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}

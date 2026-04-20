@@ -1,0 +1,51 @@
+/* ============================================
+   VelaPay Brand — Tailwind v4 @theme directive
+   For consumers on Tailwind v4+. Maps brand tokens
+   onto Tailwind utility classes (bg-brand-600,
+   text-ink-900, font-display, etc.).
+
+   Usage:
+     @import 'tailwindcss';
+     @import '@vela/brand/tokens.css';
+     @import '@vela/brand/theme.css';
+   ============================================ */
+
+@theme {
+  /* Brand blues */
+  --color-brand-50:  #e8eefd;
+  --color-brand-100: #d1ddfb;
+  --color-brand-200: #a3bbf7;
+  --color-brand-300: #4c9ff9;
+  --color-brand-400: #1486F6;
+  --color-brand-500: #0e5ef0;
+  --color-brand-600: #0C35E9;
+  --color-brand-700: #0a20d6;
+  --color-brand-800: #0909C3;
+  --color-brand-900: #070790;
+  --color-brand-950: #050560;
+
+  /* Inks */
+  --color-ink-0:   #ffffff;
+  --color-ink-50:  #F4F5F7;
+  --color-ink-100: #eef0f6;
+  --color-ink-200: #dde1ec;
+  --color-ink-300: #bcc3d6;
+  --color-ink-400: #8b95b3;
+  --color-ink-500: #5a6585;
+  --color-ink-600: #3d4665;
+  --color-ink-700: #262d48;
+  --color-ink-800: #1f1f1f;
+  --color-ink-900: #161616;
+  --color-ink-950: #0a0a0a;
+
+  /* Typography */
+  --font-display: 'Fustat', 'Inter', system-ui, sans-serif;
+  --font-sans:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}

@@ -1,0 +1,21 @@
+/* ============================================
+   VelaPay Brand Fonts — Self-hosted via @fontsource
+   Requires peer dependencies:
+     @fontsource/fustat
+     @fontsource/manrope
+     @fontsource/geist-mono
+   ============================================ */
+
+/* Body — Manrope */
+@import '@fontsource/manrope/latin-400.css';
+@import '@fontsource/manrope/latin-500.css';
+@import '@fontsource/manrope/latin-600.css';
+
+/* Display — Fustat */
+@import '@fontsource/fustat/latin-500.css';
+@import '@fontsource/fustat/latin-600.css';
+@import '@fontsource/fustat/latin-700.css';
+
+/* Monospace — Geist Mono */
+@import '@fontsource/geist-mono/latin-400.css';
+@import '@fontsource/geist-mono/latin-500.css';

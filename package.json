@@ -1,0 +1,52 @@
+{
+  "name": "@vela/brand",
+  "version": "0.1.0",
+  "description": "VelaPay brand tokens, typography, and canonical assets. Consumed by vela-web, vela-dashboard, vela-docs, and sibling repos.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velapay/brand.git"
+  },
+  "files": [
+    "tokens.css",
+    "theme.css",
+    "fonts.css",
+    "tokens.ts",
+    "og.ts",
+    "assets",
+    "brand.md",
+    "README.md"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./theme.css": "./theme.css",
+    "./fonts.css": "./fonts.css",
+    "./tokens": "./tokens.ts",
+    "./og": "./og.ts",
+    "./assets/*": "./assets/*",
+    "./brand.md": "./brand.md"
+  },
+  "peerDependencies": {
+    "@fontsource/fustat": "^5.2.7",
+    "@fontsource/geist-mono": "^5.2.7",
+    "@fontsource/manrope": "^5.2.8",
+    "@resvg/resvg-js": "^2.6.2"
+  },
+  "peerDependenciesMeta": {
+    "@resvg/resvg-js": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "velapay",
+    "brand",
+    "design-tokens",
+    "css-variables"
+  ],
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/bun": "latest"
+  }
+}

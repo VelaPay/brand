@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#161616"/>
+      <stop offset="100%" stop-color="#0909C3"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="36%" r="48%">
+      <stop offset="0%" stop-color="#1486F6" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#0C35E9" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#161616" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#halo)"/>
+
+  <!-- White shield mark, centered -->
+  <g transform="translate(466,168) scale(2.68)">
+    <path d="M 8 0 L 30 0 C 36 0 40 4 42 10 L 49 30 C 49.4 31 50.6 31 51 30 L 58 10 C 60 4 64 0 70 0 L 92 0 C 96.4 0 100 3.6 100 8 L 100 28 C 100 31 98.5 33.7 96 35.2 L 54.5 55 C 51.7 56.3 48.3 56.3 45.5 55 L 4 35.2 C 1.5 33.7 0 31 0 28 L 0 8 C 0 3.6 3.6 0 8 0 Z"
+      fill="#ffffff"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="422" text-anchor="middle"
+    font-family="Fustat, Inter, system-ui, -apple-system, sans-serif"
+    font-size="96" font-weight="700" letter-spacing="-3.8"
+    fill="#ffffff">VelaPay</text>
+
+  <!-- Hairline -->
+  <rect x="570" y="456" width="60" height="1.2" fill="url(#rule)"/>
+
+  <!-- Tagline — edit this per consumer -->
+  <text x="600" y="508" text-anchor="middle"
+    font-family="Manrope, Inter, system-ui, -apple-system, sans-serif"
+    font-size="28" font-weight="400" letter-spacing="-0.3"
+    fill="#ffffff" fill-opacity="0.78">Billing infrastructure for Solana.</text>
+</svg>
