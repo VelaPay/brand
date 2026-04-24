@@ -60,6 +60,24 @@ export const fonts = {
   mono:    "'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace",
 } as const;
 
+export const status = {
+  success:         "oklch(0.72 0.17 145)",
+  successMuted:    "color-mix(in srgb, oklch(0.72 0.17 145) 16%, transparent)",
+  destructive:     "oklch(0.65 0.2 18)",
+  destructiveMuted: "color-mix(in srgb, oklch(0.65 0.2 18) 16%, transparent)",
+  warning:         "oklch(0.75 0.16 75)",
+  warningMuted:    "color-mix(in srgb, oklch(0.75 0.16 75) 16%, transparent)",
+  info:            "oklch(0.65 0.18 245)",
+  infoMuted:       "color-mix(in srgb, oklch(0.65 0.18 245) 16%, transparent)",
+} as const;
+
+export const motion = {
+  easeBrand: "cubic-bezier(0.32, 0.72, 0, 1)",
+  transitionFast: 180,
+  transitionBase: 200,
+  transitionSlow: 220,
+} as const;
+
 export const radii = {
   sm: 8,
   base: 14,
@@ -69,3 +87,6 @@ export const radii = {
 
 export type BrandScale = keyof typeof brand;
 export type InkScale = keyof typeof ink;
+export type StatusKey = keyof typeof status;
+export type MotionKey = keyof typeof motion;
+export type RadiusKey = keyof typeof radii;

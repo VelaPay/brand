@@ -51,6 +51,22 @@
   --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
   --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 
+  /* Status colors */
+  --success:         oklch(0.72 0.17 145);
+  --success-muted:   color-mix(in srgb, oklch(0.72 0.17 145) 16%, transparent);
+  --destructive:     oklch(0.65 0.2 18);
+  --destructive-muted: color-mix(in srgb, oklch(0.65 0.2 18) 16%, transparent);
+  --warning:         oklch(0.75 0.16 75);
+  --warning-muted:   color-mix(in srgb, oklch(0.75 0.16 75) 16%, transparent);
+  --info:            oklch(0.65 0.18 245);
+  --info-muted:      color-mix(in srgb, oklch(0.65 0.18 245) 16%, transparent);
+
+  /* Motion */
+  --ease-brand:       cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-fast:  180ms;
+  --transition-base:  200ms;
+  --transition-slow:  220ms;
+
   /* Radii */
   --radius-sm: 8px;
   --radius:    14px;

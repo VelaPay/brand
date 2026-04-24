@@ -41,7 +41,14 @@
   /* Typography */
   --font-display: 'Fustat', 'Inter', system-ui, sans-serif;
   --font-sans:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
   --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Status colors */
+  --color-success:    oklch(0.72 0.17 145);
+  --color-destructive: oklch(0.65 0.2 18);
+  --color-warning:    oklch(0.75 0.16 75);
+  --color-info:       oklch(0.65 0.18 245);
 
   /* Radii */
   --radius-sm: 8px;

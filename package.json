@@ -1,7 +1,7 @@
 {
   "name": "@vela/brand",
-  "version": "0.1.0",
-  "description": "VelaPay brand tokens, typography, and canonical assets. Consumed by vela-web, vela-dashboard, vela-docs, and sibling repos.",
+  "version": "0.2.0",
+  "description": "VelaPay design system — brand tokens, component primitives, typography, and canonical assets.",
   "type": "module",
   "license": "UNLICENSED",
   "private": true,
@@ -13,8 +13,12 @@
     "tokens.css",
     "theme.css",
     "fonts.css",
+    "surfaces-dark.css",
+    "components.css",
+    "animations.css",
     "tokens.ts",
     "og.ts",
+    "react",
     "assets",
     "brand.md",
     "README.md"
@@ -23,8 +27,13 @@
     "./tokens.css": "./tokens.css",
     "./theme.css": "./theme.css",
     "./fonts.css": "./fonts.css",
+    "./surfaces-dark.css": "./surfaces-dark.css",
+    "./components.css": "./components.css",
+    "./animations.css": "./animations.css",
     "./tokens": "./tokens.ts",
     "./og": "./og.ts",
+    "./react": "./react/index.ts",
+    "./react/*": "./react/*.tsx",
     "./assets/*": "./assets/*",
     "./brand.md": "./brand.md"
   },
@@ -32,21 +41,33 @@
     "@fontsource/fustat": "^5.2.7",
     "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/manrope": "^5.2.8",
-    "@resvg/resvg-js": "^2.6.2"
+    "@resvg/resvg-js": "^2.6.2",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
     "@resvg/resvg-js": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
       "optional": true
     }
   },
   "keywords": [
     "velapay",
     "brand",
+    "design-system",
     "design-tokens",
+    "component-library",
     "css-variables"
   ],
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0"
   }
 }
