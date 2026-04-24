@@ -1,6 +1,6 @@
 {
   "name": "@vela/brand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VelaPay unified design system — tokens, typography, marketing + dashboard component primitives, and React bindings. WCAG 2.2 AA-aligned with first-class dark-mode support.",
   "type": "module",
   "license": "UNLICENSED",

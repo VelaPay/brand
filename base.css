@@ -12,6 +12,12 @@
      @import '@vela/brand/animations.css';
    ============================================ */
 
+/* Declare cascade layer order so components.css overrides base reset.
+   Unlayered rules beat layered rules, so we MUST wrap base in a layer. */
+@layer base, components;
+
+@layer base {
+
 /* ── Reset ─────────────────────────────────────────────────────── */
 
 *,
@@ -244,3 +250,5 @@ p {
     scroll-behavior: auto !important;
   }
 }
+
+} /* @layer base */
