@@ -1,6 +1,9 @@
 /* ============================================
-   VelaPay Animations
-   Shared keyframes and animation utilities.
+   VelaPay Animations (v1.0.0)
+   Shared keyframes + animation utilities.
+
+   Keyframe naming convention: vela-<name>
+   Utility classes drive the keyframes with sensible defaults.
 
    Usage:
      @import '@vela/brand/animations.css';
@@ -8,6 +11,10 @@
 
 /* ── Shimmer (loading skeleton) ──────────────────────────────── */
 
+/**
+ * .shimmer — skeleton loader background sweep
+ * Usage: <div class="shimmer" aria-busy="true" aria-label="Loading…">
+ */
 .shimmer {
   position: relative;
   overflow: hidden;
@@ -33,78 +40,14 @@
   animation: vela-pulse-soft 1.5s ease-in-out infinite;
 }
 
-/* ── Pop-in (success mark, icons) ────────────────────────────── */
-
-@keyframes vela-pop-in {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* ── Modal entrance ──────────────────────────────────────────── */
-
-@keyframes vela-modal-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes vela-backdrop-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+/* ── Utility class mappings for motion keyframes ─────────────── */
 
 .checkout-modal-in {
   animation: vela-modal-in 200ms ease;
 }
 
-/* ── Page skeleton fade ──────────────────────────────────────── */
-
-@keyframes vela-page-fade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .page-skeleton-enter {
   animation: vela-page-fade 200ms var(--ease-brand, cubic-bezier(0.32, 0.72, 0, 1)) both;
-}
-
-/* ── Step slide transitions (checkout flow) ──────────────────── */
-
-@keyframes vela-slide-in-left {
-  from {
-    transform: translateX(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes vela-slide-in-right {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .animate-slide-left {
@@ -115,28 +58,70 @@
   animation: vela-slide-in-right 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* ── Keyframes (referenced by components.css) ────────────────── */
+/* ════════════════════════════════════════════════════════════════
+   KEYFRAMES
+   ════════════════════════════════════════════════════════════════ */
 
 @keyframes vela-shimmer {
-  to {
-    transform: translateX(100%);
-  }
+  to { transform: translateX(100%); }
 }
 
-/* Wide-sweep shimmer (300% travel) — used by landing-page Hero */
+/* Wide-sweep shimmer (300% travel) — for vela-web Hero encrypted stripes */
 @keyframes shimmer-line {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
 }
 
 @keyframes vela-pulse-soft {
-  0%,
-  100% {
-    opacity: 0.48;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0.48; }
+  50%      { opacity: 1; }
+}
+
+@keyframes vela-pop-in {
+  0%   { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes vela-modal-in {
+  0%   { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes vela-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vela-page-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vela-slide-in-left {
+  from { transform: translateX(20px);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes vela-slide-in-right {
+  from { transform: translateX(-20px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+/* Spinner (circular loader) */
+@keyframes vela-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Progress (indeterminate bar) */
+@keyframes vela-progress-indeterminate {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+/* Caret blink (form carets in custom inputs) */
+@keyframes vela-caret-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
 /* ── Reduced motion ──────────────────────────────────────────── */

@@ -1,24 +1,36 @@
 /**
- * VelaPay Design System — Card primitives.
+ * VelaPay Design System — Card primitives (v1.0.0)
  *
- * Zero-dependency card components matching `.surface-card` and
- * `.panel-card` in `@vela/brand/components.css`.
+ * SurfaceCard  → `.card`       — 20px radius, hover lift
+ * PanelCard    → `.panel-card` — 24px radius, subtle gradient
+ *
+ * Pass `interactive` to SurfaceCard to signal clickability
+ * (adds `cursor: pointer` + `:focus-within` ring).
  *
  * Usage:
- *   import { SurfaceCard, PanelCard } from "@vela/brand/react/card";
- *   <SurfaceCard>...</SurfaceCard>
- *   <PanelCard>...</PanelCard>
+ *   import { SurfaceCard, PanelCard } from "@vela/brand/react";
+ *   <SurfaceCard>…</SurfaceCard>
+ *   <SurfaceCard interactive onClick={…}>…</SurfaceCard>
  */
 import { cn } from "./cn";
 import type { HTMLAttributes, ReactNode } from "react";
 
 export interface SurfaceCardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  interactive?: boolean;
 }
 
-export function SurfaceCard({ className, children, ...props }: SurfaceCardProps) {
+export function SurfaceCard({
+  className,
+  children,
+  interactive = false,
+  ...props
+}: SurfaceCardProps) {
   return (
-    <div {...props} className={cn("surface-card", className)}>
+    <div
+      {...props}
+      className={cn("card", interactive && "card--interactive", className)}
+    >
       {children}
     </div>
   );

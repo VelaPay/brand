@@ -1,43 +1,42 @@
 /**
- * VelaPay Design System — Button primitive.
+ * VelaPay Design System — Button primitive (v1.0.0)
  *
- * Zero-dependency button component with VelaPay brand variants.
- * Matches the CSS `.btn-*` classes in `@vela/brand/components.css`
- * for consumers that prefer React components over CSS classes.
- *
- * Supports `asChild` pattern via render delegation (no Radix dep).
- * For Radix `Slot` support, wrap with `@radix-ui/react-slot` locally.
+ * Pill button (999px radius) in vela-web's visual language.
+ * All sizes enforce WCAG-safe min-height via --control-* tokens.
+ * Maps to `.btn-*` classes in `@vela/brand/components.css`.
  *
  * Usage:
- *   import { Button } from "@vela/brand/react/button";
- *   <Button variant="primary" size="md">Subscribe</Button>
+ *   import { Button } from "@vela/brand/react";
+ *   <Button variant="primary">Start building</Button>
+ *   <Button variant="brand" size="lg">Subscribe</Button>
+ *   <Button variant="danger" disabled>Delete</Button>
  */
 import { cn } from "./cn";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 export type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "ghost"
-  | "text"
+  | "primary"       // ink-950 → brand-600 on hover (default)
+  | "brand"         // brand-700 solid fill, for brand-forward CTAs
+  | "ghost"         // transparent + border
+  | "danger"        // destructive fill
+  | "text"          // underlined text link styled as button
   | "text-danger";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "btn-primary",
-  secondary: "btn-secondary",
-  danger: "btn-danger",
-  ghost: "btn-ghost",
-  text: "btn-text",
+  primary:       "btn-primary",
+  brand:         "btn-brand",
+  ghost:         "btn-ghost",
+  danger:        "btn-danger",
+  text:          "btn-text",
   "text-danger": "btn-text-danger",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "!min-h-9 !px-3 !py-1.5 !text-xs !rounded-lg",
+  sm: "btn-sm",
   md: "",
-  lg: "!min-h-12 !px-5 !py-3",
+  lg: "btn-lg",
 };
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -58,12 +57,7 @@ export function Button({
     <button
       {...props}
       type={type}
-      className={cn(
-        "btn",
-        variantClasses[variant],
-        sizeClasses[size],
-        className,
-      )}
+      className={cn("btn", variantClasses[variant], sizeClasses[size], className)}
     >
       {children}
     </button>

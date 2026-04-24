@@ -1,7 +1,7 @@
 {
   "name": "@vela/brand",
-  "version": "0.2.0",
-  "description": "VelaPay design system — brand tokens, component primitives, typography, and canonical assets.",
+  "version": "1.0.0",
+  "description": "VelaPay unified design system — tokens, typography, marketing + dashboard component primitives, and React bindings. WCAG 2.2 AA-aligned with first-class dark-mode support.",
   "type": "module",
   "license": "UNLICENSED",
   "private": true,
@@ -13,7 +13,7 @@
     "tokens.css",
     "theme.css",
     "fonts.css",
-    "surfaces-dark.css",
+    "base.css",
     "components.css",
     "animations.css",
     "tokens.ts",
@@ -27,7 +27,7 @@
     "./tokens.css": "./tokens.css",
     "./theme.css": "./theme.css",
     "./fonts.css": "./fonts.css",
-    "./surfaces-dark.css": "./surfaces-dark.css",
+    "./base.css": "./base.css",
     "./components.css": "./components.css",
     "./animations.css": "./animations.css",
     "./tokens": "./tokens.ts",
@@ -62,7 +62,11 @@
     "design-system",
     "design-tokens",
     "component-library",
-    "css-variables"
+    "css-variables",
+    "dark-mode",
+    "a11y",
+    "wcag",
+    "dashboard"
   ],
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
