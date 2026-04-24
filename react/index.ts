@@ -37,12 +37,17 @@ export {
 } from "./input";
 export { Field, type FieldProps } from "./field";
 export { Switch, type SwitchProps } from "./switch";
+export { Slider, type SliderProps } from "./slider";
 
 /* ── Feedback ───────────────────────────────────────────────── */
 export { Alert, type AlertProps, type AlertVariant } from "./alert";
+export { Callout, type CalloutProps, type CalloutVariant } from "./callout";
 export { Progress, type ProgressProps } from "./progress";
 export { Tooltip, type TooltipProps } from "./tooltip";
 export { EmptyState, type EmptyStateProps } from "./empty-state";
+
+/* ── Data display ───────────────────────────────────────────── */
+export { MonoValue, type MonoValueProps } from "./mono-value";
 
 /* ── Navigation ─────────────────────────────────────────────── */
 export {

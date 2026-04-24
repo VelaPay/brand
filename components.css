@@ -1587,4 +1587,266 @@ select.input-field {
   }
 }
 
+/* ════════════════════════════════════════════════════════════════
+   EXTENDED PRIMITIVES (extracted from Concept.tsx mandate card)
+   Range slider, card-style segmented tabs, callout, mono value,
+   theme scope helpers.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Segmented — add card-radius + block-width variants ──────── */
+
+/**
+ * .segmented--rect — rectangular radii instead of pill
+ * (for tabs-within-a-card patterns like Subscription/Agent budget)
+ */
+.segmented--rect,
+.segmented--rect .segmented__item {
+  border-radius: 10px;
+}
+.segmented--rect {
+  padding: var(--space-1);
+}
+
+/**
+ * .segmented--block — children fill available width equally
+ */
+.segmented--block {
+  display: flex;
+  width: 100%;
+}
+.segmented--block .segmented__item {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ── Range slider ─────────────────────────────────────────────
+   Cross-browser custom-styled <input type="range">.
+   @element <input type="range" class="range-slider" style="--pct: 45%">
+   Caller sets `--pct` on the element (0–100%) for track fill.
+*/
+
+.range-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.range-slider-wrap__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+.range-slider-wrap__label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+}
+.range-slider-wrap__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text);
+  font-weight: 540;
+}
+.range-slider-wrap__value-unit {
+  color: var(--text-subtle);
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.range-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  --pct: 0%;
+}
+
+/* Track (Webkit) */
+.range-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent) var(--pct),
+    var(--border) var(--pct),
+    var(--border) 100%
+  );
+}
+
+/* Track (Firefox) */
+.range-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+}
+.range-slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* Thumb (Webkit) */
+.range-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--accent) 25%, transparent);
+  margin-top: -7px;
+  cursor: pointer;
+  transition: transform 120ms var(--ease-brand);
+}
+.range-slider:hover::-webkit-slider-thumb { transform: scale(1.08); }
+.range-slider:active::-webkit-slider-thumb { transform: scale(0.95); }
+
+/* Thumb (Firefox) */
+.range-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--accent) 25%, transparent);
+  cursor: pointer;
+}
+
+.range-slider:focus-visible {
+  outline: none;
+}
+.range-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow:
+    0 2px 6px color-mix(in oklab, var(--accent) 25%, transparent),
+    0 0 0 4px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+.range-slider:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .range-slider::-webkit-slider-thumb,
+  .range-slider:hover::-webkit-slider-thumb,
+  .range-slider:active::-webkit-slider-thumb {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ── Callout — tinted surface panel ──────────────────────────
+   Softer than .alert (no accent stripe) — used for inline
+   explainer cards with embedded controls (toggles, choices).
+   @element <div class="callout callout--privacy">
+*/
+.callout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-sunken);
+}
+.callout__body { flex: 1; min-width: 0; }
+.callout__title {
+  display: block;
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+  margin: 0 0 2px;
+  font-size: var(--text-sm);
+}
+.callout__sub {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.callout--info {
+  border-color: color-mix(in oklab, var(--accent-info) 30%, transparent);
+  background: color-mix(in oklab, var(--accent-info) 8%, var(--surface-raised));
+}
+.callout--success {
+  border-color: color-mix(in oklab, var(--success) 30%, transparent);
+  background: color-mix(in oklab, var(--success) 8%, var(--surface-raised));
+}
+.callout--warning {
+  border-color: color-mix(in oklab, var(--warning) 30%, transparent);
+  background: color-mix(in oklab, var(--warning) 10%, var(--surface-raised));
+}
+.callout--danger {
+  border-color: color-mix(in oklab, var(--destructive) 30%, transparent);
+  background: color-mix(in oklab, var(--destructive) 10%, var(--surface-raised));
+}
+.callout--privacy {
+  border-color: color-mix(in oklab, var(--accent-purple) 30%, transparent);
+  background: color-mix(in oklab, var(--accent-purple) 10%, var(--surface-raised));
+}
+
+/* ── Mono value — tabular display for numeric values ───────── */
+
+/**
+ * .mono-value — tabular-lining mono number display
+ * @element <span class="mono-value">$29.00<span class="mono-value__unit">USDC</span></span>
+ */
+.mono-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 540;
+  color: var(--text);
+}
+.mono-value__unit {
+  color: var(--text-subtle);
+  font-size: 0.72em;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THEME SCOPES — domain-contextual accent swaps.
+   Apply `.theme-privacy` on any wrapper to re-bind --accent
+   (and dependent tokens) to the purple "encrypted" hue for
+   descendants. Any primitive consuming --accent / --link / --ring
+   picks up the swap automatically — Button, Switch, Range slider,
+   focus rings, links, etc.
+
+   Usage:
+     <div class="theme-privacy">
+       <Switch checked /> <Button variant="brand">Sign</Button>
+     </div>
+   ════════════════════════════════════════════════════════════════ */
+.theme-privacy {
+  --accent:        var(--accent-purple);
+  --accent-hover:  #c4b5fd;
+  --accent-deep:   #7c3aed;
+  --accent-soft:   color-mix(in oklab, var(--accent-purple) 16%, transparent);
+  --link:          #8b5cf6;
+  --link-hover:    var(--accent-purple);
+  --ring:          var(--accent-purple);
+}
+.dark .theme-privacy,
+[data-theme="dark"] .theme-privacy {
+  --accent:        var(--accent-purple);
+  --accent-hover:  #c4b5fd;
+  --link:          #c4b5fd;
+  --link-hover:    #ddd6fe;
+  --ring:          var(--accent-purple);
+}
+
+/* Within .theme-privacy, .btn-brand uses the purple accent fill */
+.theme-privacy .btn-brand {
+  background: var(--accent-purple);
+}
+.theme-privacy .btn-brand:hover {
+  background: #8b5cf6;
+}
+.theme-privacy .btn-primary:hover {
+  background: var(--accent-purple);
+}
+
 } /* @layer components */
