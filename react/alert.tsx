@@ -29,7 +29,7 @@ const defaultRoles: Record<AlertVariant, "alert" | "status"> = {
   danger:  "alert",
 };
 
-export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+export interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   variant?: AlertVariant;
   title?: ReactNode;
   icon?: ReactNode;

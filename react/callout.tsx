@@ -23,7 +23,7 @@ const variantClasses: Record<CalloutVariant, string> = {
   privacy: "callout--privacy",
 };
 
-export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
+export interface CalloutProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   variant?: CalloutVariant;
   title?: ReactNode;
   sub?: ReactNode;

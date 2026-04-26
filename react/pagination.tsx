@@ -11,7 +11,7 @@
 import { cn } from "./cn";
 import type { HTMLAttributes } from "react";
 
-export interface PaginationProps extends HTMLAttributes<HTMLElement> {
+export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
   page: number;
   pageCount: number;
   onChange: (page: number) => void;

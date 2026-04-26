@@ -44,7 +44,7 @@ function useTabs() {
   return ctx;
 }
 
-export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
+export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
   value: string;
   onChange: (value: string) => void;
   orientation?: "horizontal" | "vertical";
