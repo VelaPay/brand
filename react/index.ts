@@ -96,5 +96,13 @@ export { Redact, Money, type RedactProps, type MoneyProps } from "./redact";
 export { KpiCard, type KpiCardProps } from "./kpi-card";
 export { EventDot, type EventDotProps, type EventKind } from "./event-dot";
 
+/* ── Brand identity ─────────────────────────────────────────── */
+export {
+  VelaMark,
+  VelaLogo,
+  type VelaMarkProps,
+  type VelaLogoProps,
+} from "./vela-logo";
+
 /* ── Utility ────────────────────────────────────────────────── */
 export { cn } from "./cn";

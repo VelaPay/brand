@@ -43,10 +43,12 @@ export async function renderBrandOG(opts: RenderBrandOGOptions): Promise<number>
   const fontBuffers = opts.fontBuffers ?? (await defaultBrandFonts());
 
   const resvg = new Resvg(source, {
+    // `fontBuffers` is supported by @resvg/resvg-js >= 2.5.0 at runtime but
+    // missing from the upstream .d.ts (https://github.com/yisibl/resvg-js).
     font: {
       fontBuffers: fontBuffers.map((b) => Buffer.from(b)),
       loadSystemFonts: false,
-    },
+    } as ResvgRenderOptions['font'],
     fitTo: { mode: 'width', value: opts.width ?? 1200 },
     ...opts.resvgOptions,
   });
