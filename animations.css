@@ -124,6 +124,18 @@
   50%      { opacity: 0; }
 }
 
+/* Fade-in row (LiveStreamPanel — new settlements arrive with a soft brand glow) */
+@keyframes vela-fade-in-row {
+  0%   { opacity: 0; transform: translateY(-2px); background: rgba(94,118,255,0.18); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse ring (live status dot — stream panel, MPC online card) */
+@keyframes vela-pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
 /* ── Reduced motion ──────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

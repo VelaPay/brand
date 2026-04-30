@@ -134,4 +134,30 @@
   --color-chart-6: var(--color-destructive);
   --color-chart-7: var(--color-accent-lavender);
   --color-chart-8: var(--color-brand-300);
+
+  /* ── Dashboard primitives (v1.1) ──────────── */
+  /* Status pill colors — exposed as Tailwind utilities (text-status-priv, bg-status-priv-bg, etc.) */
+  --color-status-priv:    #7c5cff;
+  --color-status-priv-bg: rgba(124, 92, 255, 0.08);
+  --color-status-ok:      #0f9968;
+  --color-status-ok-bg:   rgba(15, 153, 104, 0.08);
+  --color-status-warn:    #b27a00;
+  --color-status-warn-bg: rgba(178, 122, 0, 0.09);
+  --color-status-err:     #c8243a;
+  --color-status-err-bg:  rgba(200, 36, 58, 0.08);
+  --color-status-info:    var(--color-brand-600);
+  --color-status-info-bg: var(--color-brand-50);
+  --color-status-mute:    var(--color-ink-500);
+  --color-status-mute-bg: var(--color-ink-100);
+
+  /* Dashboard chrome */
+  --color-dash-bg:    #fafbfd;
+  --color-dash-panel: #ffffff;
+  --color-dash-rail:  #f4f6fa;
+
+  /* Tighter dashboard radii (utility names: rounded-d, rounded-d-sm, rounded-d-lg) */
+  --radius-d-xs: 6px;
+  --radius-d-sm: 8px;
+  --radius-d:    12px;
+  --radius-d-lg: 16px;
 }

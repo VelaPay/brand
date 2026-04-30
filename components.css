@@ -1849,4 +1849,438 @@ select.input-field {
   background: var(--accent-purple);
 }
 
+/* ════════════════════════════════════════════════════════════════
+   DASHBOARD PRIMITIVES (v1.1)
+   Light shell + dark technical panels. Light surfaces consume
+   theme-reactive tokens (--dash-*, --surface-*, --text*) so
+   `.dark` flips them. `.panel-dark` is *theme-independent* — it
+   stays dark in both modes (it's a treatment for on-chain/code
+   data, not a theme-driven surface).
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Status pills ─────────────────────────────────────────────── */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 7px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 2px currentColor;
+  opacity: 0.25;
+  flex-shrink: 0;
+}
+.pill-ok    { color: var(--status-ok);   background: var(--status-ok-bg);   border-color: var(--status-ok-border); }
+.pill-warn  { color: var(--status-warn); background: var(--status-warn-bg); border-color: var(--status-warn-border); }
+.pill-err   { color: var(--status-err);  background: var(--status-err-bg);  border-color: var(--status-err-border); }
+.pill-info  { color: var(--status-info); background: var(--status-info-bg); border-color: var(--status-info-border); }
+.pill-mute  { color: var(--status-mute); background: var(--status-mute-bg); border-color: var(--status-mute-border); }
+.pill-priv  { color: var(--status-priv); background: var(--status-priv-bg); border-color: var(--status-priv-border); }
+
+/* ── KPI cards ────────────────────────────────────────────────── */
+
+.kpi {
+  background: var(--dash-panel);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--d-radius-lg);
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-weight: var(--fw-medium);
+}
+.kpi-value {
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  color: var(--text);
+  line-height: 1.05;
+  font-feature-settings: "tnum", "ss01";
+}
+.kpi-value .unit {
+  font-size: 14px;
+  color: var(--text-faint);
+  margin-left: 5px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0;
+}
+.kpi-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.kpi-accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at top right, var(--accent-soft) 0%, transparent 70%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ── Panels (light) ───────────────────────────────────────────── */
+
+.panel {
+  background: var(--dash-panel);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--d-radius-lg);
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--dash-line);
+  gap: 16px;
+}
+.panel-header h3 {
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.panel-body { padding: 20px; }
+.panel-body-flush { padding: 0; }
+
+/* ── Panel (dark — theme-independent technical surface) ───────── */
+
+.panel-dark {
+  background: var(--ink-950);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--d-radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+.panel-dark .panel-header {
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.panel-dark .panel-header h3 {
+  color: #ffffff;
+}
+
+/* ── Background patterns (used inside .panel-dark) ────────────── */
+
+.bg-dotgrid-dark {
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ── Redaction (encrypted values via Arcium MPC) ──────────────── */
+
+.redact {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  color: var(--status-priv);
+  background: var(--status-priv-bg);
+  border: 1px solid var(--status-priv-border);
+  border-radius: 5px;
+  padding: 1px 6px 1px 5px;
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.redact-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  color: #c4b5fd;
+  background: rgba(124,92,255,0.10);
+  border: 1px solid rgba(124,92,255,0.22);
+  border-radius: 5px;
+  padding: 1px 6px 1px 5px;
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.redact .bars,
+.redact-dark .bars {
+  display: inline-block;
+  background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 5px);
+  height: 8px;
+  width: 28px;
+  border-radius: 1px;
+  opacity: 0.7;
+}
+
+/* ── Dashboard shell (sidebar + topbar + content grid) ────────── */
+
+.dash-shell {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  min-height: 100vh;
+  background: var(--dash-bg);
+}
+.dash-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--dash-rail);
+  border-right: 1px solid var(--dash-line);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px;
+  gap: 4px;
+}
+.dash-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dash-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--dash-bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--dash-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  gap: 24px;
+}
+.dash-content {
+  padding: 32px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+/* ── Sidebar nav items ────────────────────────────────────────── */
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--d-radius-sm);
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background var(--transition-fast) var(--ease-brand),
+              color var(--transition-fast) var(--ease-brand);
+  letter-spacing: -0.005em;
+  user-select: none;
+}
+.nav-item:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+.nav-item.active,
+.nav-item[aria-current="page"] {
+  background: var(--dash-panel);
+  color: var(--text);
+  box-shadow: 0 1px 0 rgba(12,15,32,0.04), 0 1px 2px rgba(12,15,32,0.04);
+}
+.nav-item.active .nav-icon,
+.nav-item[aria-current="page"] .nav-icon {
+  color: var(--accent);
+}
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+.nav-section-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 18px 10px 8px;
+  font-weight: var(--fw-medium);
+}
+
+/* ── Dashboard table (.dtable) — distinct from marketing .data-table */
+
+.dtable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+}
+.dtable thead th {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  padding: 12px 16px;
+  background: var(--dash-rail);
+  border-bottom: 1px solid var(--dash-line);
+  border-top: 1px solid var(--dash-line);
+}
+.dtable thead th:first-child { padding-left: 22px; }
+.dtable thead th:last-child  { padding-right: 22px; text-align: right; }
+.dtable tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--dash-line-2);
+  color: var(--text);
+  vertical-align: middle;
+}
+.dtable tbody td:first-child { padding-left: 22px; }
+.dtable tbody td:last-child  { padding-right: 22px; text-align: right; }
+.dtable tbody tr {
+  transition: background var(--transition-fast) var(--ease-brand);
+}
+.dtable tbody tr.is-clickable { cursor: pointer; }
+.dtable tbody tr:hover { background: var(--surface-hover); }
+.dtable tbody tr:last-child td { border-bottom: none; }
+
+/* ── Segmented tabs (.dtabs / .dtab) ──────────────────────────── */
+
+.dtabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  background: var(--surface-active);
+  border-radius: 10px;
+}
+.dtab {
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast) var(--ease-brand),
+              color var(--transition-fast) var(--ease-brand);
+  font-family: inherit;
+}
+.dtab:hover { color: var(--text); }
+.dtab.active,
+.dtab[aria-selected="true"] {
+  background: var(--dash-panel);
+  color: var(--text);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 1px 2px rgba(12,15,32,0.06);
+}
+
+/* ── Search input wrapper (.dash-input + kbd hint) ────────────── */
+
+.dash-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dash-panel);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--d-radius);
+  padding: 8px 12px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+  transition: border-color var(--transition-fast) var(--ease-brand),
+              box-shadow var(--transition-fast) var(--ease-brand);
+}
+.dash-input:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.dash-input input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font: inherit;
+  color: var(--text);
+  min-width: 0;
+}
+.dash-input input::placeholder {
+  color: var(--text-faint);
+}
+.dash-input kbd {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  background: var(--dash-rail);
+  border: 1px solid var(--dash-line);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-muted);
+}
+
+/* ── Inline barline (progress bar utility) ────────────────────── */
+
+.barline {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-active);
+  overflow: hidden;
+  position: relative;
+}
+.barline > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+}
+
+/* ── Soft horizontal divider ──────────────────────────────────── */
+
+.hr-soft {
+  height: 1px;
+  background: var(--dash-line);
+  border: 0;
+  margin: 0;
+}
+
+/* ── Animation utility class for new stream rows ──────────────── */
+
+.fade-in-row {
+  animation: vela-fade-in-row 0.4s var(--ease-out-soft);
+}
+
+/* ── Dashboard responsive (mobile/tablet) ─────────────────────── */
+
+@media (max-width: 1100px) {
+  .dash-shell { grid-template-columns: 64px 1fr; }
+  .dash-sidebar .nav-item span:not(.nav-icon) { display: none; }
+  .dash-sidebar .nav-section-label { display: none; }
+  .dash-content { padding: 20px; }
+  .dash-topbar { padding: 12px 20px; }
+}
+
 } /* @layer components */

@@ -80,5 +80,21 @@ export {
 export { StatCard, type StatCardProps, type DeltaDirection } from "./stat-card";
 export { Avatar, type AvatarProps, type AvatarSize } from "./avatar";
 
+/* ── Dashboard primitives (v1.1) ────────────────────────────── */
+export {
+  Pill,
+  StatusPill,
+  PrivacyPill,
+  type PillProps,
+  type PillTone,
+  type StatusPillProps,
+  type PrivacyPillProps,
+  type MandateStatus,
+  type PrivacyKind,
+} from "./pill";
+export { Redact, Money, type RedactProps, type MoneyProps } from "./redact";
+export { KpiCard, type KpiCardProps } from "./kpi-card";
+export { EventDot, type EventDotProps, type EventKind } from "./event-dot";
+
 /* ── Utility ────────────────────────────────────────────────── */
 export { cn } from "./cn";

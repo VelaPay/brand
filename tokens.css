@@ -211,6 +211,49 @@
   --chart-7: var(--accent-lavender);
   --chart-8: var(--brand-300);
 
+  /* ════════════════════════════════════════════════════════════════
+     DASHBOARD PRIMITIVES (v1.1)
+     Encrypted/privacy violet, status pill calibrations, dashboard
+     chrome aliases, and tighter dashboard radii. All consumed via
+     tokens so .dark below can flip a single layer.
+     ════════════════════════════════════════════════════════════════ */
+
+  /* ── Encrypted / Arcium violet — privacy north-star ────────── */
+  --status-priv:        #7c5cff;
+  --status-priv-bg:     rgba(124,92,255,0.08);
+  --status-priv-border: rgba(124,92,255,0.22);
+
+  /* ── Status pill calibrations (light) ──────────────────────── */
+  --status-ok:        #0f9968;
+  --status-ok-bg:     rgba(15,153,104,0.08);
+  --status-ok-border: rgba(15,153,104,0.18);
+  --status-warn:        #b27a00;
+  --status-warn-bg:     rgba(178,122,0,0.09);
+  --status-warn-border: rgba(178,122,0,0.20);
+  --status-err:         #c8243a;
+  --status-err-bg:      rgba(200,36,58,0.08);
+  --status-err-border:  rgba(200,36,58,0.18);
+  --status-info:        var(--brand-600);
+  --status-info-bg:     var(--brand-50);
+  --status-info-border: rgba(12,53,233,0.18);
+  --status-mute:        var(--ink-500);
+  --status-mute-bg:     var(--ink-100);
+  --status-mute-border: rgba(22,22,22,0.07);
+
+  /* ── Dashboard chrome ──────────────────────────────────────── */
+  --dash-bg:          #fafbfd;
+  --dash-panel:       var(--surface-raised);
+  --dash-rail:        #f4f6fa;
+  --dash-line:        rgba(12,15,32,0.07);
+  --dash-line-2:      rgba(12,15,32,0.04);
+  --dash-line-strong: rgba(12,15,32,0.12);
+
+  /* Tighter dashboard radii (distinct from marketing radii) */
+  --d-radius-xs: 6px;
+  --d-radius-sm: 8px;
+  --d-radius:    12px;
+  --d-radius-lg: 16px;
+
   color-scheme: light;
 }
 
@@ -295,6 +338,39 @@
   --chart-6: #f87171;
   --chart-7: var(--accent-lavender);
   --chart-8: var(--brand-200);
+
+  /* ── Dashboard primitives (v1.1) — dark overrides ──────────── */
+
+  /* Encrypted/Arcium violet — slightly more luminous over dark */
+  --status-priv:        #a78bfa;
+  --status-priv-bg:     rgba(124,92,255,0.14);
+  --status-priv-border: rgba(124,92,255,0.32);
+
+  /* Status pill backgrounds flip to translucent-on-dark; text colors
+     bump to lighter variants for AA contrast against ink-900. */
+  --status-ok:          #4ade80;
+  --status-ok-bg:       color-mix(in srgb, #4ade80 14%, transparent);
+  --status-ok-border:   rgba(74,222,128,0.28);
+  --status-warn:        #fbbf24;
+  --status-warn-bg:     color-mix(in srgb, #fbbf24 14%, transparent);
+  --status-warn-border: rgba(251,191,36,0.28);
+  --status-err:         #f87171;
+  --status-err-bg:      color-mix(in srgb, #f87171 14%, transparent);
+  --status-err-border:  rgba(248,113,113,0.28);
+  --status-info:        var(--brand-300);
+  --status-info-bg:     color-mix(in srgb, var(--brand-400) 16%, transparent);
+  --status-info-border: rgba(76,159,249,0.32);
+  --status-mute:        var(--ink-300);
+  --status-mute-bg:     rgba(255,255,255,0.06);
+  --status-mute-border: rgba(255,255,255,0.10);
+
+  /* Dashboard chrome flips to ink-scale surfaces */
+  --dash-bg:          var(--ink-900);
+  --dash-panel:       var(--ink-800);
+  --dash-rail:        color-mix(in oklab, var(--ink-900) 92%, black);
+  --dash-line:        rgba(255,255,255,0.07);
+  --dash-line-2:      rgba(255,255,255,0.04);
+  --dash-line-strong: rgba(255,255,255,0.14);
 }
 
 /* ================================================================
