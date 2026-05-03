@@ -60,7 +60,7 @@ export async function renderBrandOG(opts: RenderBrandOGOptions): Promise<number>
 
 /**
  * Resolve the default brand font buffers from the consumer's node_modules.
- * Assumes @fontsource/fustat and @fontsource/manrope are installed.
+ * Assumes @fontsource/fustat, @fontsource/manrope, and @fontsource/geist-mono are installed.
  */
 export async function defaultBrandFonts(): Promise<ArrayBuffer[]> {
   return Promise.all([
@@ -69,6 +69,9 @@ export async function defaultBrandFonts(): Promise<ArrayBuffer[]> {
     ).arrayBuffer(),
     Bun.file(
       'node_modules/@fontsource/manrope/files/manrope-latin-400-normal.woff2',
+    ).arrayBuffer(),
+    Bun.file(
+      'node_modules/@fontsource/geist-mono/files/geist-mono-latin-500-normal.woff2',
     ).arrayBuffer(),
   ]);
 }
